@@ -1,0 +1,39 @@
+package com.platformCommons.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.platformCommons.exceptions.AdminException;
+import com.platformCommons.exceptions.LoginException;
+import com.platformCommons.exceptions.StudentException;
+import com.platformCommons.model.LoginDto;
+import com.platformCommons.model.Session;
+import com.platformCommons.repo.AdminRepo;
+import com.platformCommons.repo.SessionRepo;
+import com.platformCommons.repo.StudentRepo;
+
+@Service
+public class LoginServiceImpl implements LoginService{
+
+	@Autowired
+	private SessionRepo sessionRepo;
+	
+	@Autowired
+	private AdminRepo adminRepo;
+	
+	@Autowired
+	private StudentRepo studentRepo;
+	
+	@Override
+	public Session login(LoginDto loginDto) throws LoginException, AdminException, StudentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String logout(Integer userId) throws LoginException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

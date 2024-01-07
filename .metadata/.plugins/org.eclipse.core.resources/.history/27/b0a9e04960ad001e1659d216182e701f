@@ -1,0 +1,32 @@
+package com.platformCommons.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.platformCommons.exceptions.AdminException;
+import com.platformCommons.model.Admin;
+import com.platformCommons.model.AdminDto;
+import com.platformCommons.services.AdminService;
+import com.platformCommons.services.SessionService;
+
+@RestController
+public class AdminController {
+
+	@Autowired
+	private AdminService adminService;
+	
+	@PostMapping("/admins")
+	public ResponseEntity<Admin> addAdmin(@RequestBody @Valid AdminDto admin) throws AdminException{
+		Admin savedAdmin = adminService.addAdmin(admin);
+		return new ResponseEntity<>(savedAdmin, HttpStatus.CREATED);
+	}
+	
+}

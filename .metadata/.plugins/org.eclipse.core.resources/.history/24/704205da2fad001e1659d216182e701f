@@ -1,0 +1,5 @@
+package com.platformCommons.repo;
+
+public interface StudentRepo {
+
+}

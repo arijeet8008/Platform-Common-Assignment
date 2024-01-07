@@ -1,0 +1,5 @@
+package com.platformCommons.controller;
+
+public class AdminController {
+
+}

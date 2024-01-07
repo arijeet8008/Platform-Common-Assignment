@@ -1,0 +1,41 @@
+package com.platformCommons.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.platformCommons.exceptions.StudentException;
+import com.platformCommons.model.Student;
+import com.platformCommons.repo.AddressRepo;
+import com.platformCommons.repo.StudentRepo;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+	
+	@Autowired
+	private StudentRepo studentRepo;
+	
+//	@Autowired
+//	private AddressRepo addressRepo;
+
+	@Override
+	public Student addStudent(Student student) throws StudentException {
+		if(studentRepo.findByEmail(student.getEmail()) != null)
+			throw new StudentException("Student already exists with the email:- "+student.getEmail());
+		
+		Student student2 = studentRepo.save(student);
+		
+		return student2;
+		
+	}
+
+	@Override
+	public Student getStudentByName(String name) throws StudentException {
+
+		Student student = studentRepo.findByName(name);
+		if(student == null)
+			throw new StudentException("Invalid Name");
+		return student;
+
+	}
+
+}

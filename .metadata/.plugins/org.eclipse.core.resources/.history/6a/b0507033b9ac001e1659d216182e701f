@@ -1,0 +1,5 @@
+package com.platformCommons.services;
+
+public class AdminServiceImpl {
+
+}

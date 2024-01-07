@@ -1,0 +1,29 @@
+package com.platformCommons.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.platformCommons.exceptions.StudentException;
+import com.platformCommons.model.Student;
+import com.platformCommons.repo.StudentRepo;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+	
+	@Autowired
+	private StudentRepo studentRepo;
+	
+	
+
+	@Override
+	public Student addStudent(Student student) throws StudentException {
+		if(cRepo.findByEmail(customerDto.getEmail()) != null)
+			throw new CustomerException("Customer already exists with the email:- "+customerDto.getEmail());
+		
+		Customer customer = new Customer(customerDto.getName(), customerDto.getEmail(), customerDto.getPassword());
+		Address address = new Address(customerDto.getAddress().getHouseNo(), customerDto.getAddress().getColony(), customerDto.getAddress().getCity(), customerDto.getAddress().getState(), customerDto.getAddress().getPinCode(), customer);
+		customer.setAddress(address);
+		return cRepo.save(customer);
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.platformCommons.services;
+
+import com.platformCommons.exceptions.StudentException;
+import com.platformCommons.model.Student;
+
+public interface StudentService {
+
+	public Student addStudent(Student student) throws StudentException;
+	
+	public Student getStudentByName(String name) throws StudentException;
+	
+	public Student getStudentByCourseId(Integer id) throws StudentException;
+	
+}

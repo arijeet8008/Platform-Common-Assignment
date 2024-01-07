@@ -1,0 +1,5 @@
+package com.platformCommons.exceptions;
+
+public class LoginException {
+
+}
